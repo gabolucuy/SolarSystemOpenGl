@@ -1,0 +1,4 @@
+## Directory-based project format:
+Gemfile.lock
+*.png
+img/
