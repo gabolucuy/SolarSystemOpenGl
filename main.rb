@@ -16,13 +16,16 @@ DELAY_TIME.freeze
 
 def load_objects
   puts "Loading model"
-  # @sun = Model.new('obj/sun', 'obj/sun.mtl')  
-  # @mercury = Model.new('obj/mercury', 'obj/mercury.mtl')    
+  @sun = Model.new('obj/sun', 'obj/sun.mtl')  
+  @mercury = Model.new('obj/mercury', 'obj/mercury.mtl')    
   # @venus = Model.new('obj/venus', 'obj/venus.mtl')      
   # @earth = Model.new('obj/earth', 'obj/earth.mtl')
-  @mars = Model.new('obj/mars', 'obj/mars.mtl')
-  # @juper = Model.new('obj/jupiter', 'obj/jupiter.mtl')  
-  @saturn = Model.new('obj/saturn', 'obj/saturn.mtl')
+  # @mars = Model.new('obj/mars', 'obj/mars.mtl')
+  # @jupiter = Model.new('obj/jupiter', 'obj/jupiter.mtl')  
+  # @saturn = Model.new('obj/saturn', 'obj/saturn.mtl')
+  # @uranus = Model.new('obj/uranus', 'obj/uranus.mtl')
+  # @neptune = Model.new('obj/neptune', 'obj/neptune.mtl')
+  # @pluto = Model.new('obj/pluto', 'obj/pluto.mtl')
   
   puts "model loaded"
 end 
@@ -58,50 +61,69 @@ def draw
   @frame_start = glutGet(GLUT_ELAPSED_TIME)
   check_fps
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-#  glPushMatrix
-#     glTranslate(0.0, 0.0, 0.0)
-#     glRotatef(0.0, 0.0, 3.0, 0.0)
-#     glScalef(8.0, 8.0, 8.0)
-#     @sun.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(0.0, 0.0, 70.0)
-#     glRotatef(@spin, 0.0, 3.0, 0.0)
-#     glScalef(4.0, 4.0, 4.0)
-#     @mercury.draw
-#   glPopMatrix
+ glPushMatrix
+    glTranslate(0.0, 0.0, 0.0)
+    glRotatef(0.0, 0.0, 3.0, 0.0)
+    glScalef(12.0, 12.0, 12.0)
+    @sun.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xMercury, @zMercury, 0.0) #70
+    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glScalef(3.0, 3.0, 3.0)
+    @mercury.draw
+  glPopMatrix
 #   glPushMatrix
 #     glTranslate(0.0, 0.0, 120.0)
 #     glRotatef(@spin, 0.0, 3.0, 0.0)
-#     glScalef(4.0, 4.0, 4.0)
+#     glScalef(5, 5, 5)
 #     @venus.draw
 #   glPopMatrix
 #   glPushMatrix
 #     glTranslate(0.0, 0.0, 170.0)
 #     glRotatef(@spin, 0.0, 1.0, 0.0)
-#     glScalef(4.0, 4.0, 4.0)
+#     glScalef(5.3, 5.3, 5.3)
 #     @earth.draw
 #   glPopMatrix
-  glPushMatrix
-    glTranslate(0.0, 0.0, 230.0)
-    glRotatef(@spin, 0.0, 1.0, 0.0)
-    glScalef(4.0, 4.0, 4.0)
-    @mars.draw
-  glPopMatrix
-  glPushMatrix
-    glTranslate(0.0, 0.0, 100.0)
-    glRotatef(@spin, 0.0, 1.0, 0.0)
-    glScalef(8.0, 8.0, 8.0)
-    @saturn.draw
-  glPopMatrix
- glPushMatrix
-    glTranslate(0.0, 0.0, 30.0)
-    glRotatef(@spin, 0.0, 3.0, 0.0)
-    glScalef(8.0, 8.0, 8.0)
-    @juper.draw
-  glPopMatrix
+#   glPushMatrix
+#     glTranslate(0.0, 0.0, 230.0)
+#     glRotatef(@spin, 0.0, 1.0, 0.0)
+#     glScalef(5.0, 5.0, 5.0)
+#     @mars.draw
+#   glPopMatrix
+#  glPushMatrix
+#     glTranslate(0.0, 0.0, 300.0)
+#     glRotatef(@spin, 0.0, 3.0, 0.0)
+#     glScalef(10.0, 10.0, 10.0)
+#     @jupiter.draw
+#   glPopMatrix
+#   glPushMatrix
+#     glTranslate(0.0, 0.0, 390.0)
+#     glRotatef(@spin, 0.0, 1.0, 0.0)
+#     glScalef(18.0, 18.0, 18.0)
+#     @saturn.draw
+#   glPopMatrix
+#   glPushMatrix
+#     glTranslate(0.0, 0.0, 470.0)
+#     glRotatef(@spin, 0.0, 3.0, 0.0)
+#     glScalef(7.0, 7.0, 7.0)
+#     @uranus.draw
+#   glPopMatrix
+#   glPushMatrix
+#     glTranslate(0.0, 0.0, 540.0)
+#     glRotatef(@spin, 0.0, 3.0, 0.0)
+#     glScalef(7.0, 7.0, 7.0)
+#     @neptune.draw
+#   glPopMatrix
+# glPushMatrix
+#     glTranslate(0.0, 0.0, 600.0)
+#     glRotatef(@spin, 0.0, 3.0, 0.0)
+#     glScalef(4.0, 4.0, 4.0)
+#     @pluto.draw
+#   glPopMatrix
 
   glutSwapBuffers
+
 end
 
 def reshape(width, height)
@@ -119,6 +141,11 @@ def idle
 
   if @spin > 360.0
     @spin = @spin - 360.0
+  
+  
+  @xMercury =  @radioMercury*Math.cos(@w*@t)
+  @zMercury =  @radioMercury*Math.sin(@w*@t)
+  
   end
 
   @frame_time = glutGet(GLUT_ELAPSED_TIME) - @frame_start
@@ -146,11 +173,15 @@ end
 @spin = 0.0
 @previous_time = 0
 @frame_count = 0
-
+@xMercury=0
+@zMercury=0
+@radioMercury = 70
+@t=1
+@w=0.0047
 load_objects
 glutInit
 glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH)
-glutInitWindowSize(900,700)
+glutInitWindowSize(1100,680)
 glutInitWindowPosition(10,10)
 glutCreateWindow("Hola OpenGL, en Ruby")
 glutDisplayFunc :draw
