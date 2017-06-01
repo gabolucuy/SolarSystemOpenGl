@@ -69,55 +69,55 @@ def draw
   glPopMatrix
   glPushMatrix
     glTranslate(@xMercury,0.0,@zMercury) #70
-    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glRotatef(@spinMercury, 0.0, 3.0, 0.0)
     glScalef(3.0, 3.0, 3.0)
     @mercury.draw
   glPopMatrix
   glPushMatrix
     glTranslate(@xVenus, 0.0,@zVenus )
-    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glRotatef(@spinVenus, 0.0, 3.0, 0.0)
     glScalef(5, 5, 5)
     @venus.draw
   glPopMatrix
   glPushMatrix
     glTranslate(@xEarth, 0.0, @zEarth)
-    glRotatef(@spin, 0.0, 1.0, 0.0)
+    glRotatef(@spinEarth, 0.0, 1.0, 0.0)
     glScalef(5.3, 5.3, 5.3)
     @earth.draw
   glPopMatrix
   glPushMatrix
     glTranslate(@xMars, 0.0, @zMars)
-    glRotatef(@spin, 0.0, 1.0, 0.0)
+    glRotatef(@spinMars, 0.0, 1.0, 0.0)
     glScalef(5.0, 5.0, 5.0)
     @mars.draw
   glPopMatrix
  glPushMatrix
     glTranslate(@xJupiter, 0.0, @zJupiter)
-    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glRotatef(@spinJupiter, 0.0, 3.0, 0.0)
     glScalef(10.0, 10.0, 10.0)
     @jupiter.draw
   glPopMatrix
   glPushMatrix
     glTranslate(@xSaturn, 0.0, @zSaturn)
-    glRotatef(@spin, 0.0, 1.0, 0.0)
+    glRotatef(@spinSaturn, 0.0, 1.0, 0.0)
     glScalef(18.0, 18.0, 18.0)
     @saturn.draw
   glPopMatrix
   glPushMatrix
     glTranslate(@xUranus, 0.0, @zUranus)
-    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glRotatef(@spinUranus, 0.0, 3.0, 0.0)
     glScalef(7.0, 7.0, 7.0)
     @uranus.draw
   glPopMatrix
   glPushMatrix
     glTranslate(@xNeptune, 0.0, @zNeptune)
-    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glRotatef(@spinNeptune, 0.0, 3.0, 0.0)
     glScalef(7.0, 7.0, 7.0)
     @neptune.draw
   glPopMatrix
 glPushMatrix
     glTranslate(@xPluto, 0.0, @zPluto)
-    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glRotatef(@spinPluto, 0.0, 3.0, 0.0)
     glScalef(4.0, 4.0, 4.0)
     @pluto.draw
   glPopMatrix
@@ -141,11 +141,47 @@ def reshape(width, height)
 end
 
 def idle
-  @spin = @spin + 1
+  # @spin = @spin + 1
+  @spinMercury = @spinMercury + 0.017.to_f
+  @spinVenus = @spinVenus + 0.00856.to_f
+  @spinEarth = @spinEarth + ( 24 / 24 ).to_f
+  @spinMars = @spinMars + 0.96.to_f
+  @spinJupiter = @spinJupiter + ( 24 / 10 ).to_f
+  @spinSaturn = @spinSaturn + ( 24 / 11 ).to_f
+  @spinUranus = @spinUranus + ( 24 / 14 ).to_f
+  @spinNeptune = @spinNeptune + ( 24 / 16 ).to_f
+  @spinPluto = @spinPluto + 0.157.to_f
 
-  if @spin > 360.0
-    @spin = @spin - 360.0
+  
+  if @spinMercury > 360.0
+    @spinMercury = @spinMercury - 360.0
   end
+  if @spinVenus > 360.0
+    @spinVenus = @spinVenus - 360.0
+  end
+  if @spinEarth > 360.0
+    @spinEarth = @spinEarth - 360.0
+  end
+  if @spinMars > 360.0
+    @spinMars = @spinMars - 360.0
+  end
+  if @spinJupiter > 360.0
+    @spinJupiter = @spinJupiter - 360.0
+  end
+  if @spinSaturn > 360.0
+    @spinSaturn = @spinSaturn - 360.0
+  end
+  if @spinUranus > 360.0
+    @spinUranus = @spinUranus - 360.0
+  end
+  if @spinNeptune > 360.0
+    @spinNeptune = @spinNeptune- 360.0
+  end 
+  if @spinPluto > 360.0
+    @spinPluto = @spinPluto - 360.0
+  end
+  
+  
   @xMercury  = @radiusMercury*Math.sin(@wMercury*@t)
   @zMercury =  @radiusMercury*Math.cos(@wMercury*@t)
 
@@ -198,6 +234,16 @@ def check_fps
 end
 
 @spin = 0.0
+@spinMercury = 0.0
+@spinVenus = 0.0
+@spinEarth = 0.0
+@spinMars = 0.0
+@spinJupiter = 0.0
+@spinSaturn = 0.0
+@spinUranus = 0.0
+@spinNeptune = 0.0
+@spinPluto = 0.0
+
 @previous_time = 0
 @frame_count = 0
 
