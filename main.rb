@@ -18,14 +18,14 @@ def load_objects
   puts "Loading model"
   @sun = Model.new('obj/sun', 'obj/sun.mtl')  
   @mercury = Model.new('obj/mercury', 'obj/mercury.mtl')    
-  # @venus = Model.new('obj/venus', 'obj/venus.mtl')      
-  # @earth = Model.new('obj/earth', 'obj/earth.mtl')
-  # @mars = Model.new('obj/mars', 'obj/mars.mtl')
-  # @jupiter = Model.new('obj/jupiter', 'obj/jupiter.mtl')  
-  # @saturn = Model.new('obj/saturn', 'obj/saturn.mtl')
-  # @uranus = Model.new('obj/uranus', 'obj/uranus.mtl')
-  # @neptune = Model.new('obj/neptune', 'obj/neptune.mtl')
-  # @pluto = Model.new('obj/pluto', 'obj/pluto.mtl')
+  @venus = Model.new('obj/venus', 'obj/venus.mtl')      
+  @earth = Model.new('obj/earth', 'obj/earth.mtl')
+  @mars = Model.new('obj/mars', 'obj/mars.mtl')
+  @jupiter = Model.new('obj/jupiter', 'obj/jupiter.mtl')  
+  @saturn = Model.new('obj/saturn', 'obj/saturn.mtl')
+  @uranus = Model.new('obj/uranus', 'obj/uranus.mtl')
+  @neptune = Model.new('obj/neptune', 'obj/neptune.mtl')
+  @pluto = Model.new('obj/pluto', 'obj/pluto.mtl')
   
   puts "model loaded"
 end 
@@ -68,59 +68,59 @@ def draw
     @sun.draw
   glPopMatrix
   glPushMatrix
-    glTranslate(@xMercury, @zMercury, 0.0) #70
+    glTranslate(@xMercury,0.0,@zMercury) #70
     glRotatef(@spin, 0.0, 3.0, 0.0)
     glScalef(3.0, 3.0, 3.0)
     @mercury.draw
   glPopMatrix
-#   glPushMatrix
-#     glTranslate(0.0, 0.0, 120.0)
-#     glRotatef(@spin, 0.0, 3.0, 0.0)
-#     glScalef(5, 5, 5)
-#     @venus.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(0.0, 0.0, 170.0)
-#     glRotatef(@spin, 0.0, 1.0, 0.0)
-#     glScalef(5.3, 5.3, 5.3)
-#     @earth.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(0.0, 0.0, 230.0)
-#     glRotatef(@spin, 0.0, 1.0, 0.0)
-#     glScalef(5.0, 5.0, 5.0)
-#     @mars.draw
-#   glPopMatrix
-#  glPushMatrix
-#     glTranslate(0.0, 0.0, 300.0)
-#     glRotatef(@spin, 0.0, 3.0, 0.0)
-#     glScalef(10.0, 10.0, 10.0)
-#     @jupiter.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(0.0, 0.0, 390.0)
-#     glRotatef(@spin, 0.0, 1.0, 0.0)
-#     glScalef(18.0, 18.0, 18.0)
-#     @saturn.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(0.0, 0.0, 470.0)
-#     glRotatef(@spin, 0.0, 3.0, 0.0)
-#     glScalef(7.0, 7.0, 7.0)
-#     @uranus.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(0.0, 0.0, 540.0)
-#     glRotatef(@spin, 0.0, 3.0, 0.0)
-#     glScalef(7.0, 7.0, 7.0)
-#     @neptune.draw
-#   glPopMatrix
-# glPushMatrix
-#     glTranslate(0.0, 0.0, 600.0)
-#     glRotatef(@spin, 0.0, 3.0, 0.0)
-#     glScalef(4.0, 4.0, 4.0)
-#     @pluto.draw
-#   glPopMatrix
+  glPushMatrix
+    glTranslate(@xVenus, 0.0,@zVenus )
+    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glScalef(5, 5, 5)
+    @venus.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xEarth, 0.0, @zEarth)
+    glRotatef(@spin, 0.0, 1.0, 0.0)
+    glScalef(5.3, 5.3, 5.3)
+    @earth.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xMars, 0.0, @zMars)
+    glRotatef(@spin, 0.0, 1.0, 0.0)
+    glScalef(5.0, 5.0, 5.0)
+    @mars.draw
+  glPopMatrix
+ glPushMatrix
+    glTranslate(@xJupiter, 0.0, @zJupiter)
+    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glScalef(10.0, 10.0, 10.0)
+    @jupiter.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xSaturn, 0.0, @zSaturn)
+    glRotatef(@spin, 0.0, 1.0, 0.0)
+    glScalef(18.0, 18.0, 18.0)
+    @saturn.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xUranus, 0.0, @zUranus)
+    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glScalef(7.0, 7.0, 7.0)
+    @uranus.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xNeptune, 0.0, @zNeptune)
+    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glScalef(7.0, 7.0, 7.0)
+    @neptune.draw
+  glPopMatrix
+glPushMatrix
+    glTranslate(@xPluto, 0.0, @zPluto)
+    glRotatef(@spin, 0.0, 3.0, 0.0)
+    glScalef(4.0, 4.0, 4.0)
+    @pluto.draw
+  glPopMatrix
 
   glutSwapBuffers
 
@@ -133,7 +133,11 @@ def reshape(width, height)
   gluPerspective(45, (1.0 * width) / height, 0.001, 1000.0)
   glMatrixMode(GL_MODELVIEW)
   glLoadIdentity()
-  gluLookAt(0.0, 1000.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0)
+  # gluLookAt(1000.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)#de frente
+   gluLookAt(0.0, 1000.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0) #vista superior
+  
+  # gluLookAt(900.0, 180.0, -150.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
+
 end
 
 def idle
@@ -141,13 +145,36 @@ def idle
 
   if @spin > 360.0
     @spin = @spin - 360.0
-  
-  
-  @xMercury =  @radioMercury*Math.cos(@w*@t)
-  @zMercury =  @radioMercury*Math.sin(@w*@t)
-  
   end
+  @xMercury  = @radiusMercury*Math.sin(@wMercury*@t)
+  @zMercury =  @radiusMercury*Math.cos(@wMercury*@t)
 
+  @xVenus =  @radiusVenus*Math.sin(@wVenus*@t)
+  @zVenus =  @radiusVenus*Math.cos(@wVenus*@t)
+  
+  @xEarth =  @radiusEarth*Math.sin(@wEarth*@t)
+  @zEarth =  @radiusEarth*Math.cos(@wEarth*@t)
+  
+  @xMars =  @radiusMars*Math.sin(@wMars*@t)
+  @zMars =  @radiusMars*Math.cos(@wMars*@t)
+
+  @xJupiter =  @radiusJupiter*Math.sin(@wJupiter*@t)
+  @zJupiter =  @radiusJupiter*Math.cos(@wJupiter*@t)
+
+  @xSaturn =  @radiusSaturn*Math.sin(@wSaturn*@t)
+  @zSaturn =  @radiusSaturn*Math.cos(@wSaturn*@t)
+  
+  @xUranus =  @radiusUranus*Math.sin(@wUranus*@t)
+  @zUranus =  @radiusUranus*Math.cos(@wUranus*@t)
+  
+  @xNeptune =  @radiusNeptune*Math.sin(@wNeptune*@t)
+  @zNeptune =  @radiusNeptune*Math.cos(@wNeptune*@t)
+  
+  @xPluto =  @radiusPluto*Math.sin(@wPluto*@t)
+  @zPluto =  @radiusPluto*Math.cos(@wPluto*@t)
+
+  
+  @t = @t + 2
   @frame_time = glutGet(GLUT_ELAPSED_TIME) - @frame_start
   
   if (@frame_time< DELAY_TIME)
@@ -164,7 +191,7 @@ def check_fps
 
   if (delta_time > 1000)
     fps = @frame_count / (delta_time / 1000.0)
-    puts "FPS: #{fps}"
+    # puts "FPS: #{fps}"
     @frame_count = 0
     @previous_time = current_time
   end
@@ -173,11 +200,56 @@ end
 @spin = 0.0
 @previous_time = 0
 @frame_count = 0
-@xMercury=0
-@zMercury=0
-@radioMercury = 70
-@t=1
+
 @w=0.0047
+@t=1.0
+
+@xMercury=0.0
+@zMercury=0.0
+@radiusMercury = 70.0
+
+@xVenus=0.0
+@zVenus=0.0
+@radiusVenus = 120
+
+@xEarth=0.0
+@zEarth=0.0
+@radiusEarth = 170
+
+@xMars=0.0
+@zMars=0.0
+@radiusMars = 230 
+
+@xJupiter=0.0
+@zJupiter=0.0
+@radiusJupiter = 300
+
+@xSaturn=0.0
+@zSaturn=0.0
+@radiusSaturn = 390
+
+@xUranus=0.0
+@zUranus=0.0
+@radiusUranus = 470
+
+@xNeptune=0.0
+@zNeptune=0.0
+@radiusNeptune = 540
+
+@xPluto=0.0
+@zPluto=0.0
+@radiusPluto = 600
+
+@wMercury= 0.00414
+@wVenus= 0.00162
+@wEarth= 0.001
+@wMars= 0.000531
+@wJupiter= 0.00008433
+@wSaturn= 0.0000339
+@wUranus= 0.0000119
+@wNeptune= 0.00000606
+@wPluto= 0.00000403
+
 load_objects
 glutInit
 glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH)
