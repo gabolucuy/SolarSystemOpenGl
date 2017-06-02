@@ -100,7 +100,7 @@ def draw
   glPushMatrix
     glTranslate(@xSaturn, 0.0, @zSaturn)
     glRotatef(@spinSaturn, 0.0, 1.0, 0.0)
-    glScalef(18.0, 18.0, 18.0)
+    glScalef(20.0, 20.0, 20.0)
     @saturn.draw
   glPopMatrix
   glPushMatrix
@@ -130,13 +130,13 @@ def reshape(width, height)
   glViewport(0, 0, width, height)
   glMatrixMode(GL_PROJECTION)
   glLoadIdentity
-  gluPerspective(45, (1.0 * width) / height, 0.001, 1000.0)
+  gluPerspective(45, (1.0 * width) / height, 0.001, 1500.0)
   glMatrixMode(GL_MODELVIEW)
   glLoadIdentity()
   # gluLookAt(1000.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)#de frente
-   gluLookAt(0.0, 1000.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0) #vista superior
+  # gluLookAt(0.0, 1000.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0) #vista superior
   
-  # gluLookAt(900.0, 180.0, -150.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
+   gluLookAt(1000.0, 180.0, -150.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
 
 end
 
