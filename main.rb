@@ -125,7 +125,7 @@ def draw
     @pluto.draw
   glPopMatrix
   glPushMatrix
-    glTranslate(-280.0, 40.0,@posDeathStar)
+    glTranslate(-280.0, @yDeathStar,@posDeathStar)
     glRotatef(170.0,  0.0, 3.0, 0.0)
     glScalef(0.3,0.3, 0.3)
     @deathStar.draw
@@ -146,8 +146,8 @@ def reshape(width, height)
   gluPerspective(45, (1.0 * width) / height, 0.001, 1500.0)
   glMatrixMode(GL_MODELVIEW)
   glLoadIdentity()
-  # gluLookAt(1000.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)#de frente
-  gluLookAt(0.0, 1000.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0) #vista superior
+  gluLookAt(1000.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)#de frente
+  # gluLookAt(0.0, 1000.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0) #vista superior
   
   #  gluLookAt(1000.0, 180.0, -150.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
 
@@ -243,6 +243,7 @@ def idle
   end
   
   @posDeathStar = @posDeathStar - @movementSpeedDeathStar
+  @yDeathStar = @yDeathStar - @movementSpeedDeathStar
   #check if death stars kill a planet
   if(@posDeathStar.round()+40==@zPluto.round())
     @zPluto = -1000.0
@@ -368,7 +369,7 @@ end
 @wNeptune= 0.00000606
 @wPluto= 0.00000403
 @posDeathStar = 900 #800
-
+@yDeathStar = 440.0
 load_objects
 glutInit
 glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH)
