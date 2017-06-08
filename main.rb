@@ -4,7 +4,9 @@ require 'glut'
 require 'chunky_png'
 require 'wavefront'
 
+
 require_relative 'model'
+
 
 include Gl
 include Glu
@@ -17,7 +19,7 @@ DELAY_TIME.freeze
 def load_objects
   puts "Loading model"
   @sun = Model.new('obj/sun', 'obj/sun.mtl')  
-  @mercury = Model.new('obj/mercury', 'obj/mercury.mtl')    
+  @mercury = Model.new('obj/mercury', 'obj/mercury.mtl')   
   @venus = Model.new('obj/venus', 'obj/venus.mtl')      
   @earth = Model.new('obj/earth', 'obj/earth.mtl')
   @mars = Model.new('obj/mars', 'obj/mars.mtl')
@@ -63,7 +65,7 @@ def draw
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
  glPushMatrix
     glTranslate(0.0, 0.0, 0.0)
-    glRotatef(0.0, 0.0, 3.0, 0.0)
+    glRotatef(@spinSun, 0.0, 3.0, 0.0)
     glScalef(12.0, 12.0, 12.0)
     @sun.draw
   glPopMatrix
@@ -72,7 +74,7 @@ def draw
     glRotatef(@spinMercury, 0.0, 3.0, 0.0)
     glScalef(3.0, 3.0, 3.0)
     @mercury.draw
-  glPopMatrix
+  glPopMatrix    
   glPushMatrix
     glTranslate(@xVenus, 0.0,@zVenus )
     glRotatef(@spinVenus, 0.0, 3.0, 0.0)
@@ -100,7 +102,7 @@ def draw
   glPushMatrix
     glTranslate(@xSaturn, 0.0, @zSaturn)
     glRotatef(@spinSaturn, 0.0, 1.0, 0.0)
-    glScalef(20.0, 20.0, 20.0)
+    glScalef(21.0, 21.0, 21.0)
     @saturn.draw
   glPopMatrix
   glPushMatrix
@@ -115,7 +117,7 @@ def draw
     glScalef(7.0, 7.0, 7.0)
     @neptune.draw
   glPopMatrix
-glPushMatrix
+ glPushMatrix
     glTranslate(@xPluto, 0.0, @zPluto)
     glRotatef(@spinPluto, 0.0, 3.0, 0.0)
     glScalef(4.0, 4.0, 4.0)
@@ -134,9 +136,9 @@ def reshape(width, height)
   glMatrixMode(GL_MODELVIEW)
   glLoadIdentity()
   # gluLookAt(1000.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)#de frente
-  # gluLookAt(0.0, 1000.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0) #vista superior
+  gluLookAt(0.0, 1000.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0) #vista superior
   
-   gluLookAt(1000.0, 180.0, -150.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
+  #  gluLookAt(1000.0, 180.0, -150.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
 
 end
 
@@ -151,7 +153,7 @@ def idle
   @spinUranus = @spinUranus + ( 24 / 14 ).to_f
   @spinNeptune = @spinNeptune + ( 24 / 16 ).to_f
   @spinPluto = @spinPluto + 0.157.to_f
-
+  @spinSun = @spinSun + 0.167.to_f
   
   if @spinMercury > 360.0
     @spinMercury = @spinMercury - 360.0
@@ -180,11 +182,14 @@ def idle
   if @spinPluto > 360.0
     @spinPluto = @spinPluto - 360.0
   end
+  if @spinSun > 360.0
+    @spinSun = @spinSun - 360.0
+  end
   
   
   @xMercury  = @radiusMercury*Math.sin(@wMercury*@t)
   @zMercury =  @radiusMercury*Math.cos(@wMercury*@t)
-
+ 
   @xVenus =  @radiusVenus*Math.sin(@wVenus*@t)
   @zVenus =  @radiusVenus*Math.cos(@wVenus*@t)
   
@@ -243,6 +248,7 @@ end
 @spinUranus = 0.0
 @spinNeptune = 0.0
 @spinPluto = 0.0
+@spinSun = 0.0
 
 @previous_time = 0
 @frame_count = 0
