@@ -19,16 +19,17 @@ DELAY_TIME.freeze
 def load_objects
   puts "Loading model"
   @sun = Model.new('obj/sun', 'obj/sun.mtl')  
-  @mercury = Model.new('obj/mercury', 'obj/mercury.mtl')   
-  @venus = Model.new('obj/venus', 'obj/venus.mtl')      
-  @earth = Model.new('obj/earth', 'obj/earth.mtl')
-  @mars = Model.new('obj/mars', 'obj/mars.mtl')
-  @jupiter = Model.new('obj/jupiter', 'obj/jupiter.mtl')  
-  @saturn = Model.new('obj/saturn', 'obj/saturn.mtl')
-  @uranus = Model.new('obj/uranus', 'obj/uranus.mtl')
-  @neptune = Model.new('obj/neptune', 'obj/neptune.mtl')
-  @pluto = Model.new('obj/pluto', 'obj/pluto.mtl')
-  
+  # @mercury = Model.new('obj/mercury', 'obj/mercury.mtl')   
+  # @venus = Model.new('obj/venus', 'obj/venus.mtl')      
+  # @earth = Model.new('obj/earth', 'obj/earth.mtl')
+  # @mars = Model.new('obj/mars', 'obj/mars.mtl')
+  # @jupiter = Model.new('obj/jupiter', 'obj/jupiter.mtl')  
+  # @saturn = Model.new('obj/saturn', 'obj/saturn.mtl')
+  # @uranus = Model.new('obj/uranus', 'obj/uranus.mtl')
+  # @neptune = Model.new('obj/neptune', 'obj/neptune.mtl')
+  # @pluto = Model.new('obj/pluto', 'obj/pluto.mtl')
+  @deathStar = Model.new('obj/deathStar', 'obj/deathStar.mtl')
+
   puts "model loaded"
 end 
 
@@ -69,59 +70,65 @@ def draw
     glScalef(12.0, 12.0, 12.0)
     @sun.draw
   glPopMatrix
+#   glPushMatrix
+#     glTranslate(@xMercury,0.0,@zMercury) #70
+#     glRotatef(@spinMercury, 0.0, 3.0, 0.0)
+#     glScalef(3.0, 3.0, 3.0)
+#     @mercury.draw
+#   glPopMatrix    
+#   glPushMatrix
+#     glTranslate(@xVenus, 0.0,@zVenus )
+#     glRotatef(@spinVenus, 0.0, 3.0, 0.0)
+#     glScalef(5, 5, 5)
+#     @venus.draw
+#   glPopMatrix
+#   glPushMatrix
+#     glTranslate(@xEarth, 0.0, @zEarth)
+#     glRotatef(@spinEarth, 0.0, 1.0, 0.0)
+#     glScalef(5.3, 5.3, 5.3)
+#     @earth.draw
+#   glPopMatrix
+#   glPushMatrix
+#     glTranslate(@xMars, 0.0, @zMars)
+#     glRotatef(@spinMars, 0.0, 1.0, 0.0)
+#     glScalef(5.0, 5.0, 5.0)
+#     @mars.draw
+#   glPopMatrix
+#  glPushMatrix
+#     glTranslate(@xJupiter, 0.0, @zJupiter)
+#     glRotatef(@spinJupiter, 0.0, 3.0, 0.0)
+#     glScalef(10.0, 10.0, 10.0)
+#     @jupiter.draw
+#   glPopMatrix
+#   glPushMatrix
+#     glTranslate(@xSaturn, 0.0, @zSaturn)
+#     glRotatef(@spinSaturn, 0.0, 1.0, 0.0)
+#     glScalef(21.0, 21.0, 21.0)
+#     @saturn.draw
+#   glPopMatrix
+#   glPushMatrix
+#     glTranslate(@xUranus, 0.0, @zUranus)
+#     glRotatef(@spinUranus, 0.0, 3.0, 0.0)
+#     glScalef(7.0, 7.0, 7.0)
+#     @uranus.draw
+#   glPopMatrix
+#   glPushMatrix
+#     glTranslate(@xNeptune, 0.0, @zNeptune)
+#     glRotatef(@spinNeptune, 0.0, 3.0, 0.0)
+#     glScalef(7.0, 7.0, 7.0)
+#     @neptune.draw
+#   glPopMatrix
+#  glPushMatrix
+#     glTranslate(@xPluto, 0.0, @zPluto)
+#     glRotatef(@spinPluto, 0.0, 3.0, 0.0)
+#     glScalef(4.0, 4.0, 4.0)
+#     @pluto.draw
+#   glPopMatrix
   glPushMatrix
-    glTranslate(@xMercury,0.0,@zMercury) #70
-    glRotatef(@spinMercury, 0.0, 3.0, 0.0)
-    glScalef(3.0, 3.0, 3.0)
-    @mercury.draw
-  glPopMatrix    
-  glPushMatrix
-    glTranslate(@xVenus, 0.0,@zVenus )
-    glRotatef(@spinVenus, 0.0, 3.0, 0.0)
-    glScalef(5, 5, 5)
-    @venus.draw
-  glPopMatrix
-  glPushMatrix
-    glTranslate(@xEarth, 0.0, @zEarth)
-    glRotatef(@spinEarth, 0.0, 1.0, 0.0)
-    glScalef(5.3, 5.3, 5.3)
-    @earth.draw
-  glPopMatrix
-  glPushMatrix
-    glTranslate(@xMars, 0.0, @zMars)
-    glRotatef(@spinMars, 0.0, 1.0, 0.0)
-    glScalef(5.0, 5.0, 5.0)
-    @mars.draw
-  glPopMatrix
- glPushMatrix
-    glTranslate(@xJupiter, 0.0, @zJupiter)
-    glRotatef(@spinJupiter, 0.0, 3.0, 0.0)
-    glScalef(10.0, 10.0, 10.0)
-    @jupiter.draw
-  glPopMatrix
-  glPushMatrix
-    glTranslate(@xSaturn, 0.0, @zSaturn)
-    glRotatef(@spinSaturn, 0.0, 1.0, 0.0)
-    glScalef(21.0, 21.0, 21.0)
-    @saturn.draw
-  glPopMatrix
-  glPushMatrix
-    glTranslate(@xUranus, 0.0, @zUranus)
-    glRotatef(@spinUranus, 0.0, 3.0, 0.0)
-    glScalef(7.0, 7.0, 7.0)
-    @uranus.draw
-  glPopMatrix
-  glPushMatrix
-    glTranslate(@xNeptune, 0.0, @zNeptune)
-    glRotatef(@spinNeptune, 0.0, 3.0, 0.0)
-    glScalef(7.0, 7.0, 7.0)
-    @neptune.draw
-  glPopMatrix
- glPushMatrix
-    glTranslate(@xPluto, 0.0, @zPluto)
-    glRotatef(@spinPluto, 0.0, 3.0, 0.0)
-    glScalef(4.0, 4.0, 4.0)
-    @pluto.draw
+    glTranslate(-260.0, 40.0, 0.0)
+    glRotatef(160.0,  0.0, 3.0, 0.0)
+    glScalef(0.3,0.3, 0.3)
+    @deathStar.draw
   glPopMatrix
 
   glutSwapBuffers
