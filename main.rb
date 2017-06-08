@@ -19,15 +19,15 @@ DELAY_TIME.freeze
 def load_objects
   puts "Loading model"
   @sun = Model.new('obj/sun', 'obj/sun.mtl')  
-  # @mercury = Model.new('obj/mercury', 'obj/mercury.mtl')   
-  # @venus = Model.new('obj/venus', 'obj/venus.mtl')      
-  # @earth = Model.new('obj/earth', 'obj/earth.mtl')
-  # @mars = Model.new('obj/mars', 'obj/mars.mtl')
-  # @jupiter = Model.new('obj/jupiter', 'obj/jupiter.mtl')  
-  # @saturn = Model.new('obj/saturn', 'obj/saturn.mtl')
-  # @uranus = Model.new('obj/uranus', 'obj/uranus.mtl')
-  # @neptune = Model.new('obj/neptune', 'obj/neptune.mtl')
-  # @pluto = Model.new('obj/pluto', 'obj/pluto.mtl')
+  @mercury = Model.new('obj/mercury', 'obj/mercury.mtl')   
+  @venus = Model.new('obj/venus', 'obj/venus.mtl')      
+  @earth = Model.new('obj/earth', 'obj/earth.mtl')
+  @mars = Model.new('obj/mars', 'obj/mars.mtl')
+  @jupiter = Model.new('obj/jupiter', 'obj/jupiter.mtl')  
+  @saturn = Model.new('obj/saturn', 'obj/saturn.mtl')
+  @uranus = Model.new('obj/uranus', 'obj/uranus.mtl')
+  @neptune = Model.new('obj/neptune', 'obj/neptune.mtl')
+  @pluto = Model.new('obj/pluto', 'obj/pluto.mtl')
   @deathStar = Model.new('obj/deathStar', 'obj/deathStar.mtl')
 
   puts "model loaded"
@@ -70,69 +70,73 @@ def draw
     glScalef(12.0, 12.0, 12.0)
     @sun.draw
   glPopMatrix
-#   glPushMatrix
-#     glTranslate(@xMercury,0.0,@zMercury) #70
-#     glRotatef(@spinMercury, 0.0, 3.0, 0.0)
-#     glScalef(3.0, 3.0, 3.0)
-#     @mercury.draw
-#   glPopMatrix    
-#   glPushMatrix
-#     glTranslate(@xVenus, 0.0,@zVenus )
-#     glRotatef(@spinVenus, 0.0, 3.0, 0.0)
-#     glScalef(5, 5, 5)
-#     @venus.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(@xEarth, 0.0, @zEarth)
-#     glRotatef(@spinEarth, 0.0, 1.0, 0.0)
-#     glScalef(5.3, 5.3, 5.3)
-#     @earth.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(@xMars, 0.0, @zMars)
-#     glRotatef(@spinMars, 0.0, 1.0, 0.0)
-#     glScalef(5.0, 5.0, 5.0)
-#     @mars.draw
-#   glPopMatrix
-#  glPushMatrix
-#     glTranslate(@xJupiter, 0.0, @zJupiter)
-#     glRotatef(@spinJupiter, 0.0, 3.0, 0.0)
-#     glScalef(10.0, 10.0, 10.0)
-#     @jupiter.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(@xSaturn, 0.0, @zSaturn)
-#     glRotatef(@spinSaturn, 0.0, 1.0, 0.0)
-#     glScalef(21.0, 21.0, 21.0)
-#     @saturn.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(@xUranus, 0.0, @zUranus)
-#     glRotatef(@spinUranus, 0.0, 3.0, 0.0)
-#     glScalef(7.0, 7.0, 7.0)
-#     @uranus.draw
-#   glPopMatrix
-#   glPushMatrix
-#     glTranslate(@xNeptune, 0.0, @zNeptune)
-#     glRotatef(@spinNeptune, 0.0, 3.0, 0.0)
-#     glScalef(7.0, 7.0, 7.0)
-#     @neptune.draw
-#   glPopMatrix
-#  glPushMatrix
-#     glTranslate(@xPluto, 0.0, @zPluto)
-#     glRotatef(@spinPluto, 0.0, 3.0, 0.0)
-#     glScalef(4.0, 4.0, 4.0)
-#     @pluto.draw
-#   glPopMatrix
   glPushMatrix
-    glTranslate(-260.0, 40.0, 0.0)
-    glRotatef(160.0,  0.0, 3.0, 0.0)
+    glTranslate(@xMercury,0.0,@zMercury) #70
+    glRotatef(@spinMercury, 0.0, 3.0, 0.0)
+    glScalef(3.0, 3.0, 3.0)
+    @mercury.draw
+  glPopMatrix    
+  glPushMatrix
+    glTranslate(@xVenus, 0.0,@zVenus )
+    glRotatef(@spinVenus, 0.0, 3.0, 0.0)
+    glScalef(5, 5, 5)
+    @venus.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xEarth, 0.0, @zEarth)
+    glRotatef(@spinEarth, 0.0, 1.0, 0.0)
+    glScalef(5.3, 5.3, 5.3)
+    @earth.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xMars, 0.0, @zMars)
+    glRotatef(@spinMars, 0.0, 1.0, 0.0)
+    glScalef(5.0, 5.0, 5.0)
+    @mars.draw
+  glPopMatrix
+ glPushMatrix
+    glTranslate(@xJupiter, 0.0, @zJupiter)
+    glRotatef(@spinJupiter, 0.0, 3.0, 0.0)
+    glScalef(10.0, 10.0, 10.0)
+    @jupiter.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xSaturn, 0.0, @zSaturn)
+    glRotatef(@spinSaturn, 0.0, 1.0, 0.0)
+    glScalef(21.0, 21.0, 21.0)
+    @saturn.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xUranus, 0.0, @zUranus)
+    glRotatef(@spinUranus, 0.0, 3.0, 0.0)
+    glScalef(7.0, 7.0, 7.0)
+    @uranus.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(@xNeptune, 0.0, @zNeptune)
+    glRotatef(@spinNeptune, 0.0, 3.0, 0.0)
+    glScalef(7.0, 7.0, 7.0)
+    @neptune.draw
+  glPopMatrix
+ glPushMatrix
+    glTranslate(@xPluto, 0.0, @zPluto)
+    glRotatef(@spinPluto, 0.0, 3.0, 0.0)
+    glScalef(4.0, 4.0, 4.0)
+    @pluto.draw
+  glPopMatrix
+  glPushMatrix
+    glTranslate(-280.0, 40.0,@posDeathStar)
+    glRotatef(170.0,  0.0, 3.0, 0.0)
     glScalef(0.3,0.3, 0.3)
     @deathStar.draw
   glPopMatrix
 
   glutSwapBuffers
+  # Sounder::System.set_volume 70 # 0-100
 
+  # Sounder.play File.expand_path('.\starWars.m4a', __FILE__)
+# sound = Sounder::Sound.new 'D:\Cato\Graficas Por Computadora\Proyecto OpenGle\starWars.m4a'
+#   sound.play 
 end
 
 def reshape(width, height)
@@ -192,35 +196,88 @@ def idle
   if @spinSun > 360.0
     @spinSun = @spinSun - 360.0
   end
-  
-  
-  @xMercury  = @radiusMercury*Math.sin(@wMercury*@t)
-  @zMercury =  @radiusMercury*Math.cos(@wMercury*@t)
- 
-  @xVenus =  @radiusVenus*Math.sin(@wVenus*@t)
-  @zVenus =  @radiusVenus*Math.cos(@wVenus*@t)
-  
-  @xEarth =  @radiusEarth*Math.sin(@wEarth*@t)
-  @zEarth =  @radiusEarth*Math.cos(@wEarth*@t)
-  
-  @xMars =  @radiusMars*Math.sin(@wMars*@t)
-  @zMars =  @radiusMars*Math.cos(@wMars*@t)
+  #calculate x and z coordenates of planets
+  if (@zMercury != -1000)
+    @xMercury  = @radiusMercury*Math.sin(@wMercury*@t)
+    @zMercury =  @radiusMercury*Math.cos(@wMercury*@t)
+  end
 
-  @xJupiter =  @radiusJupiter*Math.sin(@wJupiter*@t)
-  @zJupiter =  @radiusJupiter*Math.cos(@wJupiter*@t)
+  if (@zVenus != -1000)
+    @xVenus =  @radiusVenus*Math.sin(@wVenus*@t)
+    @zVenus =  @radiusVenus*Math.cos(@wVenus*@t)
+  end
 
-  @xSaturn =  @radiusSaturn*Math.sin(@wSaturn*@t)
-  @zSaturn =  @radiusSaturn*Math.cos(@wSaturn*@t)
-  
-  @xUranus =  @radiusUranus*Math.sin(@wUranus*@t)
-  @zUranus =  @radiusUranus*Math.cos(@wUranus*@t)
-  
-  @xNeptune =  @radiusNeptune*Math.sin(@wNeptune*@t)
-  @zNeptune =  @radiusNeptune*Math.cos(@wNeptune*@t)
-  
-  @xPluto =  @radiusPluto*Math.sin(@wPluto*@t)
-  @zPluto =  @radiusPluto*Math.cos(@wPluto*@t)
+  if (@zEarth != -1000)
+    @xEarth =  @radiusEarth*Math.sin(@wEarth*@t)
+    @zEarth =  @radiusEarth*Math.cos(@wEarth*@t)
+  end
 
+  if (@zMars != -1000)
+    @xMars =  @radiusMars*Math.sin(@wMars*@t)
+    @zMars =  @radiusMars*Math.cos(@wMars*@t)
+  end
+
+  if (@zJupiter != -1000)
+    @xJupiter =  @radiusJupiter*Math.sin(@wJupiter*@t)
+    @zJupiter =  @radiusJupiter*Math.cos(@wJupiter*@t)
+  end
+
+  if (@zSaturn != -1000)
+    @xSaturn =  @radiusSaturn*Math.sin(@wSaturn*@t)
+    @zSaturn =  @radiusSaturn*Math.cos(@wSaturn*@t)
+  end
+
+  if (@zUranus != -1000)
+    @xUranus =  @radiusUranus*Math.sin(@wUranus*@t)
+    @zUranus =  @radiusUranus*Math.cos(@wUranus*@t)
+  end
+
+  if (@zNeptune != -1000)
+    @xNeptune =  @radiusNeptune*Math.sin(@wNeptune*@t)
+    @zNeptune =  @radiusNeptune*Math.cos(@wNeptune*@t)
+  end
+
+  if (@zPluto != -1000)
+    @xPluto =  @radiusPluto*Math.sin(@wPluto*@t)
+    @zPluto =  @radiusPluto*Math.cos(@wPluto*@t)
+  end
+  
+  @posDeathStar = @posDeathStar - @movementSpeedDeathStar
+  #check if death stars kill a planet
+  if(@posDeathStar.round()+40==@zPluto.round())
+    @zPluto = -1000.0
+  end
+   if(@posDeathStar.round()+40==@zNeptune.round())
+    @zNeptune = -1000.0
+  end
+   if(@posDeathStar.round()+40==@zUranus.round())
+    @zUranus = -1000.0
+  end
+   if(@posDeathStar.round()+40==@zSaturn.round())
+    @zSaturn = -1000.0
+  end
+   if(@posDeathStar.round()+40==@zJupiter.round())
+    @zJupiter = -1000.0
+  end
+   if(@posDeathStar.round()==@zMars.round())
+    @zMars = -1000.0
+  end
+   if(@posDeathStar.round()+10==@zEarth.round())
+    @zEarth = -1000.0
+  end
+   if(@posDeathStar.round()+10==@zVenus.round())
+    @zVenus = -1000.0
+  end
+  if(@posDeathStar.round()+10==@zMercury.round())
+    @zMercury = -1000.0
+  end
+
+  # if(@posDeathStar.round()==800)
+    # Sounder::System.set_volume 70 # 0-100
+    # Sounder.play File.expand_path('/starWars.m4a', file)
+     # sound = Sounder::Sound.new "/path/to/audio/file"  
+     # sound.play  
+  # end
   
   @t = @t + 2
   @frame_time = glutGet(GLUT_ELAPSED_TIME) - @frame_start
@@ -243,6 +300,8 @@ def check_fps
     @frame_count = 0
     @previous_time = current_time
   end
+  
+  
 end
 
 @spin = 0.0
@@ -262,7 +321,7 @@ end
 
 @w=0.0047
 @t=1.0
-
+@movementSpeedDeathStar = 0.4
 @xMercury=0.0
 @zMercury=0.0
 @radiusMercury = 70.0
@@ -308,13 +367,14 @@ end
 @wUranus= 0.0000119
 @wNeptune= 0.00000606
 @wPluto= 0.00000403
+@posDeathStar = 900 #800
 
 load_objects
 glutInit
 glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH)
 glutInitWindowSize(1100,680)
 glutInitWindowPosition(10,10)
-glutCreateWindow("Hola OpenGL, en Ruby")
+glutCreateWindow("Sistema solar")
 glutDisplayFunc :draw
 glutReshapeFunc :reshape
 glutIdleFunc :idle
